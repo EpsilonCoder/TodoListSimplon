@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Epsilon</title>
+  <title>Simplon</title>
   <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="" name="keywords"> 
 
- 
-  
-
-  <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Tangerine">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
   <link href="dossier/vendor/aos/aos.css" rel="stylesheet">
   <link href="dossier/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="dossier/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="dossier/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="dossier/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="dossier/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  
+  <link href="dossier/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> 
   <link href="dossier/css/style.css" rel="stylesheet">
 </head>
 
@@ -33,42 +26,103 @@
   <header id="header">
     <div class="d-flex flex-column">
 
-      <div class="profile">
-        <img src="dossier/img/profile-img.png" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">User</a></h1>
+    <div class="profile">
+        <img src="dossier/css/icon.png" alt="" class="img-fluid rounded-circle">
         <hr>
+        <h1 ><a href="index.html" class="text-dark">Simplon</a></h1>
+        <hr>
+        <hr>
+   
+        <hr>
+        <div class="progress red"> <span class="progress-left"> <span class="progress-bar"></span></span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+        <div class="progress-value">A faire</div>
+        </div>
+        <hr>
+
+
+        <hr>
+        <div class="progress yellow"> <span class="progress-left"> <span class="progress-bar"></span></span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+        <div class="progress-value">Terminé</div>
+        </div>
+        <hr>
+
+        <hr>
+        <div class="progress green"> <span class="progress-left"> <span class="progress-bar"></span></span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+        <div class="progress-value">Supprimé</div>
+        </div>
+        <hr>
+        <hr>
+
       </div>
 
       
       <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="index.html" class="nav-link scrollto active"><i class="bx bx-home" style="color:white"></i> <span>Nombre de taches</span></a></li>
-          <li><a href="profil.html" class="nav-link scrollto "><i class="bi bi-person-fill" style="color:white"></i> <span>Tache terminé</span></a></li>
-          <li><a href="formation.html" class="nav-link scrollto"><i class="bi bi-file-earmark-fill" style="color:white"></i><span>Tache Prioritaire</span></a></li>
-          
-        </ul>
+       
       </nav>
     </div>
   </header>
 
   <main id="main">
- 
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-       <!--
-        ICI VOUS ALLEZ ECRIRE
-        -->
+        
+      <span class="text"> TODOLIST <span>
+       <div class="todos">
+         <div class="myBody">
+          <form>
+            <div class="input-group">
+            <input type="text" id="todo" class="form-control newToDo">
+            <div class="input-group-append">
+            <input type="submit" value="+" class="btn btn-danger">
+            </div>
+           </div>
+          </form>
+
+        <div class="myList text-muted font-weight-bold">
+        <ul class="list-group mt-4">
+          <iframe src="alarm.html" style="border-radius:50px; border:5px solid red; overflow-x:hidden;">DeadLine</iframe>
+
+        </ul>
+        </ul>
+        </div>
+
+        <button class="btn btn-light text-muted font-weight-bold">J' ai fini ma journée</button>
+        <button class="btn deleteall bg-danger text-white font-weight-bold">Supprimer tous</button>
+    </div>
+    </div>
+
     </div>
   </section>
   
  
   </main>
 
-  
- 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
 
+
+  <script>
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCF1V3z-MU8fBicN9eSzMPoBm_HnXJb-mc",
+  authDomain: "teamsucces-87abf.firebaseapp.com",
+  databaseURL: "https://teamsucces-87abf-default-rtdb.firebaseio.com",
+  projectId: "teamsucces-87abf",
+  storageBucket: "teamsucces-87abf.appspot.com",
+  messagingSenderId: "291303589935",
+  appId: "1:291303589935:web:59b377fbd84aa12622deda",
+  measurementId: "${config.measurementId}"
+};
+ 
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const db=firebase.firestore();
+</script>
+  <script src="backend.js"></script>
   <script src="dossier/vendor/purecounter/purecounter.js"></script>
   <script src="dossier/vendor/aos/aos.js"></script>
   <script src="dossier/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -81,5 +135,4 @@
   <script src="dossier/js/main.js"></script>
 
 </body>
-
 </html>
