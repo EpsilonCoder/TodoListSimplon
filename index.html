@@ -20,8 +20,8 @@
   <link href="dossier/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="dossier/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="dossier/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  
   <link href="dossier/css/style.css" rel="stylesheet">
 </head>
 
@@ -43,7 +43,7 @@
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li><a href="index.html" class="nav-link scrollto active"><i class="bx bx-home" style="color:white"></i> <span>Nombre de taches</span></a></li>
-          <li><a href="profil.html" class="nav-link scrollto "><i class="bi bi-person-fill" style="color:white"></i> <span>Tache terminé</span></a></li>
+          <li><a href="Taches.html" class="nav-link scrollto "><i class="bi bi-person-fill" style="color:white"></i> <span>Liste Taches</span></a></li>
           <li><a href="formation.html" class="nav-link scrollto"><i class="bi bi-file-earmark-fill" style="color:white"></i><span>Tache Prioritaire</span></a></li>
           
         </ul>
@@ -52,13 +52,31 @@
   </header>
 
   <main id="main">
- 
+   
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
        <!--
         ICI VOUS ALLEZ ECRIRE
         -->
-    </div>
+      	<h1> Ajouter Une Tache</h1>
+		<div class="form">
+		<label for="Roolbox">Id</label>
+		<input id="Rollbox">
+		<label for="Namebox">Nom Tache</label>
+		<input id="NameBox">
+		<label for="Secbox">Description</label>
+		<input id="Secbox">
+
+	
+
+		<button id="Insbtn" class="btn waves-effect waves-light">Insertion</button>
+		<button id="Selbtn" class="btn waves-effect waves-light">Selection</button>
+		<button id="Updbtn" class="btn waves-effect waves-light">Update</button>
+		<button id="Delbtn" class="btn waves-effect red darken-1">Delete</button>
+	
+        </div >
+ 
+      </div>
   </section>
   
  
@@ -81,5 +99,128 @@
   <script src="dossier/js/main.js"></script>
 
 </body>
+<script type="module" defer>
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+	import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
+
+
+
+
+	const firebaseConfig = {
+		apiKey: "AIzaSyDAIa6apUHYoreT7VMM5sMabKonNkbZ6rY",
+		authDomain: "apptodo-9a6b9.firebaseapp.com",
+		projectId: "apptodo-9a6b9",
+		storageBucket: "apptodo-9a6b9.appspot.com",
+		messagingSenderId: "249228070502",
+		appId: "1:249228070502:web:7ed59b9f5998bf1240e7a7"
+	};
+
+	const app = initializeApp(firebaseConfig);
+	const analytics = getAnalytics(app);
+
+	import { getDatabase, ref, set, get, child, update, remove }
+
+		from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
+
+	var db = getDatabase();
+
+
+	//-------------------reference -----------------------------
+
+	var namebox = document.getElementById("NameBox");
+	var rollbox = document.getElementById("Rollbox");
+	var secbox = document.getElementById("Secbox");
+	
+
+
+	var insbtn = document.getElementById("Insbtn");
+	var selbtn = document.getElementById("Selbtn");
+	var updbtn = document.getElementById("Updbtn");
+	var delbtn = document.getElementById("Delbtn");
+
+	//-------------  La fonction insert DATA--------------------
+
+
+	function InserData() {
+		set(ref(db, "Users/" + rollbox.value), {
+			NameOfStd: namebox.value,
+			RollNo: rollbox.value,
+			section: secbox.value,
+			
+		})
+
+			.then(() => {
+				alert('Les donnees ont bien ete envoyé');
+			})
+
+			.catch((error) => {
+				alert("Le message na pas ete envoyé");
+			});
+	}
+
+	//-------------  envoie des donnes ------------------------
+
+	insbtn.addEventListener('click', InserData);
+
+	selbtn.addEventListener('click', SelectData);
+
+	updbtn.addEventListener('click', UpdateData);
+
+	delbtn.addEventListener('click', removeData);
+
+
+
+	//-------------Selection des donnes --------------------------
+	function SelectData() {
+		const dbref = ref(db);
+
+		get(child(dbref, "Users/" + rollbox.value)).then((snapshot) => {
+			if (snapshot.exists()) {
+				namebox.value = snapshot.val().NameOfStd;
+				secbox.value = snapshot.val().section;
+				
+			} else {
+				alert("Les donnees ne sont pas disponible");
+			}
+		});
+	}
+
+
+	//---------------La Lafoction qui npus permet de faire des update --------------------
+
+	function UpdateData() {
+		update(ref(db, "Users/" + rollbox.value), {
+			NameOfStd: namebox.value,
+			section: secbox.value
+		})
+
+			.then(() => {
+				alert('Les donnees ont bien ete mis a jour');
+			})
+
+			.catch((error) => {
+				alert("Le message na pas ete envoyé");
+			});
+	}
+
+	//--------------La fonction qui vous permet va me permettre de faire un---------------------
+
+
+	function removeData() {
+		remove(ref(db, "Users/" + rollbox.value))
+
+			.then(() => {
+				alert('Les donnees ont bien ete supprimé');
+			})
+
+			.catch((error) => {
+				alert("Le message na pas ete envoyé");
+			});
+	}
+
+
+
+
+</script>
 
 </html>
