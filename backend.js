@@ -12,6 +12,8 @@ const list = (item, id) => {
                   </li>`;
     ul.innerHTML += html;
 }
+
+
 const deliteTodo = (id) => {
     const todos = document.querySelectorAll('li');
     todos.forEach(todo => {
@@ -32,11 +34,8 @@ const unsub= db.collection('todos').onSnapshot(snapshot =>
         }else{
             deliteTodo(change.doc.id)
         }
-
     });
-
 });
-
 
 
 // cette fonctionalité permet d'ajouter une nouvelle taches

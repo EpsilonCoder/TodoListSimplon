@@ -17,12 +17,9 @@
   <link href="dossier/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> 
   <link href="dossier/css/style.css" rel="stylesheet">
 </head>
-
 <body>
 
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
- 
   <header id="header">
     <div class="d-flex flex-column">
 
@@ -35,20 +32,19 @@
    
         <hr>
         <div class="progress red"> <span class="progress-left"> <span class="progress-bar"></span></span> <span class="progress-right"> <span class="progress-bar"></span> </span>
-        <div class="progress-value">A faire</div>
+        <div class="progress-value">A PAYER</div>
         </div>
         <hr>
-
 
         <hr>
         <div class="progress yellow"> <span class="progress-left"> <span class="progress-bar"></span></span> <span class="progress-right"> <span class="progress-bar"></span> </span>
-        <div class="progress-value">Terminé</div>
+        <div class="progress-value">Deja payé</div>
         </div>
         <hr>
 
         <hr>
-        <div class="progress green"> <span class="progress-left"> <span class="progress-bar"></span></span> <span class="progress-right"> <span class="progress-bar"></span> </span>
-        <div class="progress-value">Supprimé</div>
+        <div class="progress green"> Taux de payement<span class="progress-left"> <span class="progress-bar"></span></span> <span class="progress-right"> <span class="progress-bar"></span> </span>
+        <div class="progress-value"></div>
         </div>
         <hr>
         <hr>
@@ -66,7 +62,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
         
-      <span class="text"> TODOLIST <span>
+      <span class="text"> PAYER <span>
        <div class="todos">
          <div class="myBody">
           <form>
@@ -80,13 +76,12 @@
 
         <div class="myList text-muted font-weight-bold">
         <ul class="list-group mt-4">
-          <iframe src="alarm.html" style="border-radius:50px; border:5px solid red; overflow-x:hidden;">DeadLine</iframe>
-
+         
         </ul>
-        </ul>
+       
         </div>
 
-        <button class="btn btn-light text-muted font-weight-bold">J' ai fini ma journée</button>
+       
         <button class="btn deleteall bg-danger text-white font-weight-bold">Supprimer tous</button>
     </div>
     </div>
@@ -104,8 +99,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
 
 
-  <script>
-
+<script>
 const firebaseConfig = {
   apiKey: "AIzaSyCF1V3z-MU8fBicN9eSzMPoBm_HnXJb-mc",
   authDomain: "teamsucces-87abf.firebaseapp.com",
