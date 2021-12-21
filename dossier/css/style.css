@@ -22,43 +22,35 @@ iframe{
 }
 
 /*la partie css qui nous permet de de faire le design des taches  */
-.newToDo{
-    background-color:white;
-    height: 10vh;
+
+/*la partie css qui nous permet de de faire le design des taches  */
+hr{
+  color: white;
+}
+
+label{
+  color: white;
+  font-size:20px;
+  font-family: bold;
+}
+
+form{
+  border: 4px dashed white;
+  width: 270px;
+  border-radius:20px;
 }
 
 
-
-.todos{
-    display: flex;
-    justify-content: center;
-    
+input {
+  width:255px;
+  height:40px;
+  border-radius: 15px;
 }
 
-.myList ul li{
-    
-    background:white;
-    display: flex;
-    justify-content: space-between;
-}
-
- 
-
-.fa{
-    cursor: pointer;
-}
-
-.checked{
-    text-decoration:  line-through;
-}
-
-button{
-    margin-top: 2%;
-}
-
-span{
-    font-size: 11px;
-    color: #F2B880;
+option{
+  width:255px;
+  height:40px;
+  border-radius: 15px;
 }
 
 .deleteall{
@@ -68,89 +60,7 @@ span{
 }
 /*la partie 3D*/
 
-.text {
-  position: absolute;
-  top: 50%; 
-  right: 50%;
-  transform: translate(50%,-50%);
-  text-transform: uppercase;
-  font-family: verdana;
-  font-size: 5em;
- 
-  color: #f5f5f5;
-  text-shadow: 1px 1px 1px #919191,
-      1px 2px 1px #919191,
-      1px 3px 1px #919191,
-      1px 4px 1px #919191,
-      1px 5px 1px #919191,
-      1px 6px 1px #919191,
-      1px 7px 1px #919191,
-      1px 8px 1px #919191,
-      1px 9px 1px #919191,
-      1px 10px 1px #919191,
-1px 18px 6px rgba(16,16,16,0.4),
-  1px 22px 10px rgba(16,16,16,0.2),
-  1px 25px 35px rgba(16,16,16,0.2),
-  1px 30px 60px rgba(16,16,16,0.4);
-}
 
-
-/*logo de simplon*/
-
-  .text-effect {
-  overflow: hidden;
-  position: relative;
-  filter: contrast(110%) brightness(190%);
-}
-
-.neon {
-  position: relative;
-  background: black;
-  color: transparent;
-}
-.neon::before, .neon::after {
-  content: attr(data-text);
-  color: white;
-  filter: blur(0.02em);
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-.neon::after {
-  mix-blend-mode: difference;
-}
-
-.gradient,
-.spotlight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.gradient {
-  background: linear-gradient(45deg, red, blue);
-  mix-blend-mode: multiply;
-}
-
-.spotlight {
-  -webkit-animation: light 5s infinite linear;
-          animation: light 5s infinite linear;
-  background: radial-gradient(circle, white, transparent 25%) 0 0/25% 25%, radial-gradient(circle, white, black 25%) 50% 50%/12.5% 12.5%;
-  top: -100%;
-  left: -100%;
-  mix-blend-mode: color-dodge;
-}
-
-@-webkit-keyframes light {
-  100% {
-    transform: translate3d(50%, 50%, 0);
-  }
-}
 
 @keyframes light {
   100% {
@@ -209,7 +119,7 @@ span{
   transition: all 0.5s;
   padding: 0 15px;
   background:linear-gradient(white,red);
-  overflow-y:scroll;
+  overflow-y:hidden;
 }
 #header .profile img {
   margin: 15px auto;

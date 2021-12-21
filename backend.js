@@ -1,3 +1,4 @@
+
   const ul = document.querySelector('.container');
   const form = document.querySelector('form');
   const button = document.querySelector('button');
@@ -10,14 +11,12 @@
              <i class="bi bi-check2-circle" ></i>
              <i class="bi bi-trash-fill" ></i>
 
-             <div class="card d-grid" style="width: 18rem;">
-                <img class="card-img-top" src="dossier/css/icon.png" >
+             <div class="card" style="width: 18rem; border:4px solid red; border-radius:10px;">
                 <div class="card-body" >
                     <h5 class="card-title">${item}</h5>
                     <p class="card-text">${desc}</p><br><br>
-                    <a href="#" class="btn btn-primary">${date}</a>
-                    <a href="#" class="btn btn-primary">${stats}</a>
-                    
+                    <a href="#" class="btn btn-danger">${date}</a>
+                    <a href="#" class="btn btn-primary">${stats}</a>          
                 </div>
             </div>
             </li>
